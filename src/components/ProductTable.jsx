@@ -7,19 +7,20 @@ export const ProductTable = ({
   const [count, setCount] = useState(0);
 
   const onSortClick = name => () => {
-    setCount(prev => prev + 1);
     if (activeSort !== name) {
       onSortSelected(name);
-      setCount(0);
+      setCount(1);
     }
 
     if (count === 1) {
       onReverseSort(true);
+      setCount(2);
     }
 
     if (count === 2) {
       onSortSelected('');
       onReverseSort(false);
+      setCount(0);
     }
   };
 
